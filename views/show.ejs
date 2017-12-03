@@ -1,0 +1,31 @@
+<% include ./partials/header %> <!-- Including header html from header.ejs -->
+
+<!-- Form Configuration for New Blog Post -->
+<div class ="ui main text container ">
+    <div class ="ui huge header"><%= blog.title %></div>
+    <div class ="ui top attached">
+        <div class ="item">
+        
+                <img class = "ui centered rounded image" src="<%= blog.image %>">
+            
+              
+            <div class = "content">
+                <span><%=blog.created.toDateString() %></span>    
+            </div>
+            <div class="description">
+                <p><%=blog.body%></p>
+            </div>
+            <a class = "ui grey fluid basic button" id = "editSel" href ="/blogs/<%= blog._id %>/edit">Edit This Post</a>
+            <form class ="positionChange" action ="/blogs/<%= blog._id %>?_method=DELETE" method="POST">
+                <button class="ui vertical fluid animated button" tabindex="0">
+                    <div class="hidden content">Are you sure?</div>
+                    <div class="visible content">
+                    <p>Delete This Post</p>
+                    </div>
+                </button>
+            </form>    
+        </div>
+    </div>
+</div>
+
+<% include ./partials/footer %> <!-- Including footer html from footer.ejs -->
